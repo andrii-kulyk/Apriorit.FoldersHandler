@@ -1,9 +1,15 @@
 ﻿@model Apriorit.HierarchyStructure.Mvc.Models.FoldersViewModel
 <!DOCTYPE html>
-<head></head>
+<head>
+</head>
 <body>
-    <h2>title</h2>
+    <h2>@Model.CurrentFolder</h2>
     <hr>
-    @Model.RawString
-    <hr>
+    @{
+        foreach (var subFolder in Model.SubFolders)
+        {
+            <a href="@subFolder.Link">@subFolder.Name</a>
+            <br />
+        }
+    }
 </body>
